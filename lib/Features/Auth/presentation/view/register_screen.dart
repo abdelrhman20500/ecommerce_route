@@ -10,6 +10,7 @@ import 'package:route_ecommerce/Features/Auth/domain/use_case/register_use_case.
 import 'package:route_ecommerce/Features/Auth/presentation/view/Login_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Register_cubit/register_cubit.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Register_cubit/register_state.dart';
+import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
 
 import '../../../../Core/widgets/custom_text_button.dart';
 import '../../../../Core/widgets/custom_text_field.dart';
@@ -37,7 +38,9 @@ class RegisterScreen extends StatelessWidget {
           }else if(state is RegisterFailure){
             showErrorDialog(context, "try again Later!");
           }else if(state is RegisterSuccess){
+            closeLoadingDialog(context);
             showSuccessDialog(context, state.authModel.message!);
+            Navigator.pushNamed(context, LayoutScreen.routeName);
           }
         },
         builder: (context, state) {

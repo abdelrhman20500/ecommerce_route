@@ -18,16 +18,6 @@ class ApiService{
 
     return response;
   }
-  // Future<Response> post(String endPoint, Map<String, dynamic> data,
-  //     {String? token}) async {
-  //   var response = await dio.post(endPoint,
-  //       data: data,
-  //       options: Options(headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': 'Bearer $token',
-  //       }));
-  //   return response;
-  // }
   /// logout
   Future<Response> postLogout(String endPoint,) async {
     var response = await dio.post(
@@ -41,22 +31,6 @@ class ApiService{
 
     return response;
   }
-
-  /// post fav
-  // Future<Response> postFav({required String endPoint,required String token}) async {
-  //   var response = await dio.post(
-  //     "$baseUrl$endPoint",
-  //     // data: data,
-  //     options: Options(headers: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer $token',
-  //
-  //     }),
-  //   );
-  //
-  //   return response;
-  // }
-
   /// delete method
   Future<Response> delete({required String endPoint,required String token,}) async {
     final response = await dio.delete(

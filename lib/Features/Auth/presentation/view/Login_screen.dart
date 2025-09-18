@@ -12,6 +12,7 @@ import 'package:route_ecommerce/Features/Auth/domain/use_case/login_use_case.dar
 import 'package:route_ecommerce/Features/Auth/presentation/view/register_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Login_cubit/login_cubit.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Login_cubit/login_state.dart';
+import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -34,8 +35,9 @@ class LoginScreen extends StatelessWidget {
           } else if (state is LoginFailure) {
             showErrorDialog(context, "try again Later!");
           } else if (state is LoginSuccess) {
+            closeLoadingDialog(context);
             showSuccessDialog(context, state.authModel.message!);
-            // Navigate to another screen or perform any action on success
+            Navigator.pushNamed(context, LayoutScreen.routeName);
           }
         },
         builder: (context, state) {

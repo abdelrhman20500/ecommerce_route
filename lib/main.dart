@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:route_ecommerce/Features/Auth/presentation/view/Login_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/register_screen.dart';
+import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
 
 
 
@@ -26,8 +27,10 @@ class MyApp extends StatelessWidget {
         SplashScreen.routeName:(_)=>const SplashScreen(),
         LoginScreen.routeName:(_)=>LoginScreen(),
         RegisterScreen.routeName:(_)=>RegisterScreen(),
+        LayoutScreen.routeName:(_)=>LayoutScreen(),
       },
-      initialRoute: SplashScreen.routeName,
+      // initialRoute: RegisterScreen.routeName,
+      initialRoute: SharedPref.getToken()== null ?LoginScreen.routeName: LayoutScreen.routeName,
     );
   }
 }
