@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:route_ecommerce/Core/function/api_service.dart';
-import 'package:route_ecommerce/Core/utils/error/failure.dart';
 import 'package:route_ecommerce/Core/utils/shared_preferences.dart';
 import 'package:route_ecommerce/Features/Auth/data/models/auth_model.dart';
 import 'package:route_ecommerce/Features/Auth/domain/repo/auth_repo.dart';
+import '../../../../Core/utils/errors/error_message_model.dart';
+import '../../../../Core/utils/errors/failure.dart';
 
 class AuthRepoImpl implements AuthRepo {
   final ApiService apiService;
@@ -25,8 +26,8 @@ class AuthRepoImpl implements AuthRepo {
       print(authModel.user!.email);
       return Right(authModel);
     } else {
-      return const Left(Failure());
-      // throw Exception('Failed to login'); // Handle error appropriately
+      final errorModel = ErrorMessageModel.fromJson(response.data);
+      return Left(ServerFailure(errorModel.message));      // throw Exception('Failed to login'); // Handle error appropriately
     }
   }
 
@@ -57,12 +58,16 @@ class AuthRepoImpl implements AuthRepo {
         return Right(authModel);
       } else {
         print("Registration failed with status: ${response.statusCode}");
-        return Left(
-            Failure('Failed to register: Status code ${response.statusCode}'));
+        final errorModel = ErrorMessageModel.fromJson(response.data);
+        return Left(ServerFailure(errorModel.message));
+        // return Left(
+        //     Failure('Failed to register: Status code ${response.statusCode}'));
       }
     } catch (e) {
       // Return Left with Failure instead of throwing
-      return Left(Failure('Failed to register: $e'));
+      // return Left(Failure('Failed to register: $e'));
+      // final errorModel = ErrorMessageModel.fromJson(response.data);
+      return const Left(ServerFailure("Failed to register"));
     }
   }
 }

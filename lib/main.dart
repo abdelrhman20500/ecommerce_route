@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:route_ecommerce/Features/Auth/presentation/view/Login_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/register_screen.dart';
 import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
-
-
-
 import 'Core/utils/shared_preferences.dart';
 import 'Features/Splash/presentation/view/splash_screen.dart';
 

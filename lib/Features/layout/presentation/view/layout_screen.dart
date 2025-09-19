@@ -5,7 +5,6 @@ import 'package:route_ecommerce/Features/cart/presentation/view/cart_screen.dart
 import 'package:route_ecommerce/Features/favorite/presentation/view/favorite_screen.dart';
 import 'package:route_ecommerce/Features/home/presentation/view/home_screen.dart';
 import 'package:route_ecommerce/Features/profile/presentation/view/profile_screen.dart';
-
 import '../view_manager/nav_bar_cubit.dart';
 import '../view_manager/nav_bar_state.dart';
 
@@ -13,7 +12,7 @@ class LayoutScreen extends StatelessWidget {
    LayoutScreen({super.key});
   static const String routeName ="LayoutScreen";
   final List<Widget> tabs=[
-    const HomeScreen(),
+    HomeScreen(),
     const CartScreen(),
     const FavoriteScreen(),
     const ProfileScreen(),

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:route_ecommerce/Features/Auth/data/models/auth_model.dart';
-import '../../../../Core/utils/error/failure.dart';
+import '../../../../Core/utils/errors/failure.dart';
 import '../repo/auth_repo.dart';
 
 class LoginUseCase{
