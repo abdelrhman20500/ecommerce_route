@@ -1,10 +1,13 @@
 import 'package:route_ecommerce/Core/function/api_service.dart';
+import 'package:route_ecommerce/Features/home/data/model/brands_model.dart';
 import '../../../../Core/utils/errors/error_message_model.dart';
 import '../../../../Core/utils/errors/exception.dart';
 import '../model/category_model.dart';
 
 abstract class HomeBaseRemoteDataSource{
   Future<List<CategoryModel>> getCategoryData();
+  Future<List<BrandsModel>> getBrandsData();
+
 }
 
 class HomeRemoteDataSource extends HomeBaseRemoteDataSource{
@@ -19,6 +22,21 @@ class HomeRemoteDataSource extends HomeBaseRemoteDataSource{
       final List<dynamic> dataList = response.data['data'];
       // print(dataList);
       return dataList.map((e) => CategoryModel.fromJson(e)).toList();
+    } else {
+      throw ServerException(
+        errorMessageModel: ErrorMessageModel.fromJson(response.data),
+      );
+    }
+  }
+
+  @override
+  Future<List<BrandsModel>> getBrandsData()async{
+    var response = await apiService.get(endpoint: "brands");
+
+    if (response.statusCode == 200) {
+      final List<dynamic> dataList = response.data['data'];
+      print(dataList);
+      return dataList.map((e) => BrandsModel.fromJson(e)).toList();
     } else {
       throw ServerException(
         errorMessageModel: ErrorMessageModel.fromJson(response.data),

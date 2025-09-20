@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class CategoryItem extends StatelessWidget {
-  const CategoryItem({
+class BrandsItem extends StatelessWidget {
+  const BrandsItem({
     super.key,
     required this.image,
     required this.title,
@@ -15,9 +15,11 @@ class CategoryItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        // Wrap with Container to add shadow
         Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
@@ -34,19 +36,23 @@ class CategoryItem extends StatelessWidget {
             imageUrl: image,
             imageBuilder: (context, imageProvider) => CircleAvatar(
               backgroundImage: imageProvider,
-              radius: 42,
+              radius: 50,
             ),
             placeholder: (context, url) => Shimmer.fromColors(
               baseColor: Colors.grey[300]!,
               highlightColor: Colors.grey[100]!,
               child: CircleAvatar(
                 backgroundColor: Colors.grey[300],
-                radius: 42,
+                radius: 50,
               ),
             ),
             errorWidget: (context, url, error) => const CircleAvatar(
-              radius: 42,
-              child: Icon(Icons.error, color: Colors.red, size: 42,),
+              radius: 50,
+              child: Icon(
+                Icons.error,
+                color: Colors.red,
+                size: 42,
+              ),
             ),
           ),
         ),

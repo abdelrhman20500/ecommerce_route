@@ -13,6 +13,7 @@ void main() async{
   await SharedPref.init();
   setUpServiceLocator();
   Bloc.observer= SimpleBlocObserver();
+
   runApp(const MyApp());
 }
 
@@ -30,8 +31,8 @@ class MyApp extends StatelessWidget {
         RegisterScreen.routeName:(_)=>RegisterScreen(),
         LayoutScreen.routeName:(_)=>LayoutScreen(),
       },
-      initialRoute: RegisterScreen.routeName,
-      // initialRoute: SharedPref.getToken()== null ?LoginScreen.routeName: LayoutScreen.routeName,
+      // initialRoute: RegisterScreen.routeName,
+      initialRoute: SharedPref.getToken()== null ?LoginScreen.routeName: LayoutScreen.routeName,
     );
   }
 }

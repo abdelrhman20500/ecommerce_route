@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:route_ecommerce/Features/home/presentation/view/widget/brands_bloc_builder.dart';
 import 'package:route_ecommerce/Features/home/presentation/view/widget/build_carousel_slider.dart';
 import 'package:route_ecommerce/Features/home/presentation/view/widget/build_home_search.dart';
 import 'package:route_ecommerce/Features/home/presentation/view/widget/categories_row_widget.dart';
@@ -25,9 +26,13 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: height*0.02,),
             const BuildCarouselSlider(),
             SizedBox(height: height*0.02,),
-            const CategoriesRowWidget(),
+            const CategoriesOrBrandsRowWidget(title: "Categories",),
             SizedBox(height: height*0.02,),
             const CategoryBlocBuilder(),
+            SizedBox(height: height*0.01,),
+            const CategoriesOrBrandsRowWidget(title: "Brands",),
+            SizedBox(height: height*0.01,),
+            const BrandsBlocBuilder()
           ],
         ),
       ),
