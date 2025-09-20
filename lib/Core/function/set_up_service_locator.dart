@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:route_ecommerce/Core/function/api_service.dart';
 import 'package:route_ecommerce/Features/Auth/data/repo/auth_repo_impl.dart';
+import 'package:route_ecommerce/Features/category/data/data_source/product_remote_data_source.dart';
+import 'package:route_ecommerce/Features/category/data/repo/product_repo_impl.dart';
 import 'package:route_ecommerce/Features/home/data/data_source/home_data_source.dart';
 import 'package:route_ecommerce/Features/home/data/repo/home_repo_impl.dart';
 
@@ -15,4 +17,6 @@ void setUpServiceLocator() {
   getIt.registerSingleton<HomeRepoImpl>(HomeRepoImpl(
       homeBaseRemoteDataSource:
           HomeRemoteDataSource(apiService: getIt.get<ApiService>())));
+  getIt.registerSingleton<ProductRepoImpl>(ProductRepoImpl(
+      productRemoteDataSource:ProductRemoteDataSource(apiService: getIt.get<ApiService>())));
 }

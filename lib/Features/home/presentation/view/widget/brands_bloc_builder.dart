@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_ecommerce/Features/home/data/repo/home_repo_impl.dart';
 import 'package:route_ecommerce/Features/home/domain/use_case/brands_use_case.dart';
 import 'package:route_ecommerce/Features/home/presentation/view/widget/brands_grid_view.dart';
-import 'package:route_ecommerce/Features/home/presentation/view/widget/category_grid_view.dart';
 import 'package:route_ecommerce/Features/home/presentation/view_manager/brands_cubit/brands_cubit.dart';
 import 'package:route_ecommerce/Features/home/presentation/view_manager/brands_cubit/brands_state.dart';
 import '../../../../../Core/function/set_up_service_locator.dart';

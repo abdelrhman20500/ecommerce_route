@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:route_ecommerce/Features/cart/presentation/view/cart_screen.dart';
+import 'package:route_ecommerce/Features/category/presentation/view/category_screen.dart';
 import 'package:route_ecommerce/Features/favorite/presentation/view/favorite_screen.dart';
 import 'package:route_ecommerce/Features/home/presentation/view/home_screen.dart';
 import 'package:route_ecommerce/Features/profile/presentation/view/profile_screen.dart';
@@ -13,7 +13,7 @@ class LayoutScreen extends StatelessWidget {
   static const String routeName ="LayoutScreen";
   final List<Widget> tabs=[
     const HomeScreen(),
-    const CartScreen(),
+    const CategoryScreen(),
     const FavoriteScreen(),
     const ProfileScreen(),
   ];

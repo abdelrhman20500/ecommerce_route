@@ -46,7 +46,8 @@ class CategoryItem extends StatelessWidget {
             ),
             errorWidget: (context, url, error) => const CircleAvatar(
               radius: 42,
-              child: Icon(Icons.error, color: Colors.red, size: 42,),
+              backgroundImage: AssetImage("assets/images/Women's Fashion.jpg"),
+              // child: Icon(Icons.error, color: Colors.red, size: 42,),
             ),
           ),
         ),

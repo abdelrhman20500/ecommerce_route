@@ -35,7 +35,7 @@ class HomeRemoteDataSource extends HomeBaseRemoteDataSource{
 
     if (response.statusCode == 200) {
       final List<dynamic> dataList = response.data['data'];
-      print(dataList);
+      // print(dataList);
       return dataList.map((e) => BrandsModel.fromJson(e)).toList();
     } else {
       throw ServerException(

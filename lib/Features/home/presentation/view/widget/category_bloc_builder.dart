@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_ecommerce/Features/home/data/repo/home_repo_impl.dart';
-import 'package:route_ecommerce/Features/home/domain/use_case/brands_use_case.dart';
 import 'package:route_ecommerce/Features/home/domain/use_case/category_use_case.dart';
 import 'package:route_ecommerce/Features/home/presentation/view/widget/category_grid_view.dart';
 import 'package:route_ecommerce/Features/home/presentation/view_manager/category_cubit.dart';

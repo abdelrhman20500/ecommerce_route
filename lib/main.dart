@@ -13,7 +13,6 @@ void main() async{
   await SharedPref.init();
   setUpServiceLocator();
   Bloc.observer= SimpleBlocObserver();
-
   runApp(const MyApp());
 }
 
@@ -24,7 +23,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: LoginScreen(),
       routes: {
         SplashScreen.routeName:(_)=>const SplashScreen(),
         LoginScreen.routeName:(_)=>LoginScreen(),
