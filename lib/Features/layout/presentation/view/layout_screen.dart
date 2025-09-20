@@ -12,7 +12,7 @@ class LayoutScreen extends StatelessWidget {
    LayoutScreen({super.key});
   static const String routeName ="LayoutScreen";
   final List<Widget> tabs=[
-    HomeScreen(),
+    const HomeScreen(),
     const CartScreen(),
     const FavoriteScreen(),
     const ProfileScreen(),
@@ -52,8 +52,8 @@ class LayoutScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12), // navigation bar padding
                     tabs: const[
                       GButton(icon: Icons.home, text: 'Home',),
+                      GButton(icon: Icons.category_sharp, text: 'Category',),
                       GButton(icon: Icons.favorite, text: 'Favorite',),
-                      GButton(icon: Icons.shopping_cart, text: 'Cart',),
                       GButton(icon: Icons.person, text: 'Profile',),
                     ]
                 ),

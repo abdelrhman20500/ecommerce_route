@@ -14,7 +14,7 @@ class CategoryCubit extends Cubit<CategoryState>{
     result.fold((e) {
       emit(CategoryFailure(errMessage: e.message));
     }, (categoryEntity) {
-      emit(CategorySuccess(categoryModel: categoryEntity));
+      emit(CategorySuccess(categoryEntity: categoryEntity));
     });
   }
 }

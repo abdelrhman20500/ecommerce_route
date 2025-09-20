@@ -1,7 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:route_ecommerce/Core/function/api_service.dart';
 import 'package:route_ecommerce/Core/utils/error_dialog.dart';
 import 'package:route_ecommerce/Core/utils/loading_dialog.dart';
 import 'package:route_ecommerce/Core/utils/success_dialog.dart';
@@ -11,7 +9,7 @@ import 'package:route_ecommerce/Features/Auth/presentation/view/Login_screen.dar
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Register_cubit/register_cubit.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Register_cubit/register_state.dart';
 import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
-
+import '../../../../Core/function/set_up_service_locator.dart';
 import '../../../../Core/widgets/custom_text_button.dart';
 import '../../../../Core/widgets/custom_text_field.dart';
 
@@ -30,7 +28,9 @@ class RegisterScreen extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return BlocProvider(
-      create: (context) => RegisterCubit(RegisterUseCase(AuthRepoImpl(apiService: ApiService(Dio(),),),),),
+      create: (context) => RegisterCubit(RegisterUseCase(
+        getIt.get<AuthRepoImpl>(), // get AuthRepoImpl from getI
+      ),),
       child: BlocConsumer<RegisterCubit, RegisterState>(
         listener: (context, state) {
           if(state is RegisterLoading){

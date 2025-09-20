@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:route_ecommerce/Features/home/data/model/category_model.dart';
 
+import '../../../domain/entity/category_entity.dart';
 import 'category_item.dart';
 
 class CategoryGridView extends StatelessWidget {
   const CategoryGridView({super.key, required this.model,});
 
-  final List<CategoryModel> model;
+  final List<CategoryEntity> model;
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +25,8 @@ class CategoryGridView extends StatelessWidget {
         ),
         itemBuilder: (context, index) {
           return CategoryItem(
-           image: model[index].image!,
-            title: model[index].name!,
+           image: model[index].image,
+            title: model[index].name,
           );
         },
       ),

@@ -1,4 +1,4 @@
-import '../../data/model/category_model.dart';
+import '../../domain/entity/category_entity.dart';
 
 abstract class CategoryState{}
 class CategoryInitial extends CategoryState{}
@@ -8,6 +8,6 @@ class CategoryFailure extends CategoryState{
   CategoryFailure({required this.errMessage});
 }
 class CategorySuccess extends CategoryState{
-  final List<CategoryModel> categoryModel;
-  CategorySuccess({required this.categoryModel});
+  final List<CategoryEntity> categoryEntity;
+  CategorySuccess({required this.categoryEntity});
 }

@@ -1,7 +1,5 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:route_ecommerce/Core/function/api_service.dart';
 import 'package:route_ecommerce/Core/utils/error_dialog.dart';
 import 'package:route_ecommerce/Core/utils/loading_dialog.dart';
 import 'package:route_ecommerce/Core/utils/success_dialog.dart';
@@ -13,6 +11,8 @@ import 'package:route_ecommerce/Features/Auth/presentation/view/register_screen.
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Login_cubit/login_cubit.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Login_cubit/login_state.dart';
 import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
+
+import '../../../../Core/function/set_up_service_locator.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -27,7 +27,9 @@ class LoginScreen extends StatelessWidget {
     var width = MediaQuery.of(context).size.width;
 
     return BlocProvider(
-      create: (context) => LoginCubit(LoginUseCase(AuthRepoImpl(apiService: ApiService(Dio(),),),),),
+      create: (context) => LoginCubit(LoginUseCase(
+        getIt.get<AuthRepoImpl>(),
+      ),),
       child: BlocConsumer<LoginCubit, LoginState>(
         listener: (context, state) {
           if (state is LoginLoading) {
