@@ -14,7 +14,7 @@ class ProductGridView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: GridView.builder(
-        itemCount: 8,
+        itemCount: model.length,
         scrollDirection: Axis.vertical,
         physics: const BouncingScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -31,6 +31,7 @@ class ProductGridView extends StatelessWidget {
             price: model[index].price!,
             description: model[index].description!,
             rating: model[index].ratingsAverage!,
+            images: model[index].images,
           );
         },
       ),

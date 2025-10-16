@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/Login_screen.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         RegisterScreen.routeName:(_)=>RegisterScreen(),
         LayoutScreen.routeName:(_)=>LayoutScreen(),
       },
-      // initialRoute: RegisterScreen.routeName,
+      // initialRoute: ProductDetailsScreen.routeName,
       initialRoute: SharedPref.getToken()== null ?LoginScreen.routeName: LayoutScreen.routeName,
     );
   }

@@ -4,6 +4,7 @@ import 'package:route_ecommerce/Features/category/data/data_source/product_remot
 import 'package:route_ecommerce/Features/category/data/model/product_model.dart';
 import 'package:route_ecommerce/Features/category/domain/repo/product_repo.dart';
 import '../../../../Core/utils/errors/exception.dart';
+import '../model/product_details_model.dart';
 
 class ProductRepoImpl extends ProductRepo{
   final ProductRemoteDataSource productRemoteDataSource;
@@ -13,6 +14,16 @@ class ProductRepoImpl extends ProductRepo{
   Future<Either<Failure, List<ProductModel>>> productData() async{
     try {
       var result = await productRemoteDataSource.getProduct();
+      return Right(result);
+    }on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.message));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ProductDetailsModel>> productId({required String productId})async{
+    try {
+      var result = await productRemoteDataSource.productId(productId: productId);
       return Right(result);
     }on ServerException catch (failure) {
       return Left(ServerFailure(failure.errorMessageModel.message));
