@@ -13,7 +13,7 @@ class SharedPref {
 
   static String? getToken() {
     String? token = prefs.getString("token");
-    // print("Retrieved Token: $token"); // طباعة التوكن المسترجع
+    print("Retrieved Token: $token");
     return token;
   }
 

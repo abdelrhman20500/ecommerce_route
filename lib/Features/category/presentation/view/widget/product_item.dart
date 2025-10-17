@@ -117,7 +117,7 @@ class ProductItem extends StatelessWidget {
                   ),
                   const Icon(Icons.star, color: Colors.yellow,),
                   CircleAvatar(
-                    backgroundColor: Colors.blue,
+                    backgroundColor:  const Color(0xff004182),
                     child: IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
@@ -125,7 +125,7 @@ class ProductItem extends StatelessWidget {
                       icon: const Icon(
                         Icons.add,
                         size: 30,
-                        color: Colors.black,
+                        color: Colors.white,
                       ),
                     ),
                   ),

@@ -256,7 +256,7 @@ class ProductDetailsComponent extends StatelessWidget {
               moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: height * 0.03,
+              height: height * 0.1,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -281,28 +281,31 @@ class ProductDetailsComponent extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  height: height * 0.06,
-                  width: width * 0.54,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff004182),
-                      borderRadius: BorderRadius.circular(22)),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Icon(
-                        Icons.shopping_cart_outlined,
-                        size: 38,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Add To Cart",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600),
-                      )
-                    ],
+                InkWell(
+                  onTap: (){},
+                  child: Container(
+                    height: height * 0.06,
+                    width: width * 0.54,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff004182),
+                        borderRadius: BorderRadius.circular(22)),
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Icon(
+                          Icons.shopping_cart_outlined,
+                          size: 34,
+                          color: Colors.white,
+                        ),
+                        Text(
+                          "Add To Cart",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
