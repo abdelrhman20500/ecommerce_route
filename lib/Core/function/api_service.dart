@@ -18,6 +18,19 @@ class ApiService{
 
     return response;
   }
+  Future<Response> postCart(String endPoint, Map<String, dynamic> data, String token) async {
+    return await dio.post(
+      '$baseUrl$endPoint',
+      data: data,
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'token': token,
+        },
+      ),
+    );
+  }
+
   /// logout
   Future<Response> postLogout(String endPoint,) async {
     var response = await dio.post(

@@ -36,18 +36,18 @@ class BrandsItem extends StatelessWidget {
             imageUrl: image,
             imageBuilder: (context, imageProvider) => CircleAvatar(
               backgroundImage: imageProvider,
-              radius: 50,
+              radius: 44,
             ),
             placeholder: (context, url) => Shimmer.fromColors(
               baseColor: Colors.grey[300]!,
               highlightColor: Colors.grey[100]!,
               child: CircleAvatar(
                 backgroundColor: Colors.grey[300],
-                radius: 50,
+                radius: 44,
               ),
             ),
             errorWidget: (context, url, error) => const CircleAvatar(
-              radius: 50,
+              radius: 44,
               child: Icon(
                 Icons.error,
                 color: Colors.red,

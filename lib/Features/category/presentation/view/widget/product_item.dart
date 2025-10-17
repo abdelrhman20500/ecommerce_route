@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:route_ecommerce/Features/category/presentation/view/product_details_screen.dart';
+import 'package:route_ecommerce/Features/category/presentation/view_manager/product_cubit/product_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 
 
@@ -121,7 +122,9 @@ class ProductItem extends StatelessWidget {
                     child: IconButton(
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
-                      onPressed: () {},
+                      onPressed: () {
+                        ProductCubit.get(context).addCart(productId: id);
+                      },
                       icon: const Icon(
                         Icons.add,
                         size: 30,
