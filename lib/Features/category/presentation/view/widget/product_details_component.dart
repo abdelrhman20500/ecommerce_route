@@ -236,7 +236,8 @@ class ProductDetailsComponent extends StatelessWidget {
                           ),
                         ),
                       ],
-                    )),
+                    ),
+                ),
               ],
             ),
             SizedBox(

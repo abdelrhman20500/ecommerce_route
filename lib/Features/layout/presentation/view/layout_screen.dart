@@ -52,7 +52,7 @@ class LayoutScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12), // navigation bar padding
                     tabs: const[
                       GButton(icon: Icons.home, text: 'Home',),
-                      GButton(icon: Icons.category_sharp, text: 'Category',),
+                      GButton(icon: Icons.category_sharp, text: 'Products',),
                       GButton(icon: Icons.favorite, text: 'Favorite',),
                       GButton(icon: Icons.person, text: 'Profile',),
                     ]

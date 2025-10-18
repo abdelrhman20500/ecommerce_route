@@ -18,6 +18,8 @@ class ApiService{
 
     return response;
   }
+
+  /// postCart method
   Future<Response> postCart(String endPoint, Map<String, dynamic> data, String token) async {
     return await dio.post(
       '$baseUrl$endPoint',
@@ -30,7 +32,16 @@ class ApiService{
       ),
     );
   }
-
+ /// getCart method
+  Future<Response> getCart({required String endpoint ,String? token}) async {
+    var response = await dio.get("$baseUrl$endpoint",
+      options:Options(headers: {
+        'Content-Type': 'application/json',
+        'token': token,
+      }),
+    );
+    return response;
+  }
   /// logout
   Future<Response> postLogout(String endPoint,) async {
     var response = await dio.post(

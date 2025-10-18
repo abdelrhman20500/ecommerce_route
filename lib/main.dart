@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/Login_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/register_screen.dart';
+
+import 'package:route_ecommerce/Features/cart/presentation/view/cart_screen.dart';
 import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
 import 'Core/function/set_up_service_locator.dart';
 import 'Core/function/simple_bloc_observer.dart';
@@ -13,6 +15,8 @@ void main() async{
   await SharedPref.init();
   setUpServiceLocator();
   Bloc.observer= SimpleBlocObserver();
+  // CartCubit(CartUserUseCase(cartRepo: CartRepoImpl(cartRemoteDataSource:
+  // CartRemoteDataSource(apiService: ApiService(Dio(),),),),),)..getCart();
   runApp(const MyApp());
 }
 
@@ -28,8 +32,9 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName:(_)=>LoginScreen(),
         RegisterScreen.routeName:(_)=>RegisterScreen(),
         LayoutScreen.routeName:(_)=>LayoutScreen(),
+        CartScreen.routeName:(_)=>const CartScreen(),
       },
-      // initialRoute: ProductDetailsScreen.routeName,
+      // initialRoute: CartScreen.routeName,
       initialRoute: SharedPref.getToken()== null ?LoginScreen.routeName: LayoutScreen.routeName,
     );
   }
