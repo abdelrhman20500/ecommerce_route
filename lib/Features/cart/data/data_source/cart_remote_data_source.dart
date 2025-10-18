@@ -7,6 +7,8 @@ import '../../../../Core/utils/shared_preferences.dart';
 
 abstract class CartBaseRemoteDataSource{
   Future<CartModel> getCart();
+  Future<CartModel> deleteCart({required String productId});
+
 }
 
 class CartRemoteDataSource extends CartBaseRemoteDataSource{
@@ -27,4 +29,21 @@ class CartRemoteDataSource extends CartBaseRemoteDataSource{
       );
     }
   }
+
+  @override
+  Future<CartModel> deleteCart({required String productId})async{
+    var response = await apiService.delete(endPoint: "cart/$productId",
+        token: SharedPref.getToken().toString()
+    );
+    if(response.statusCode == 200){
+      final Map<String, dynamic> productCart = response.data;
+      print(productCart);
+      return CartModel.fromJson(productCart);
+    }else{
+      throw ServerException(
+        errorMessageModel: ErrorMessageModel.fromJson(response.data),
+      );
+    }
+  }
+  
 }

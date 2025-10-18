@@ -11,3 +11,12 @@ class CartSuccess extends CartState{
   final CartModel cartModel;
   CartSuccess({required this.cartModel});
 }
+class DeleteItemCartLoading extends CartState{}
+class DeleteItemFailure extends CartState{
+  final String errMessage;
+  DeleteItemFailure({required this.errMessage});
+}
+class DeleteItemSuccess extends CartState{
+  final CartModel cartModel;
+  DeleteItemSuccess({required this.cartModel});
+}

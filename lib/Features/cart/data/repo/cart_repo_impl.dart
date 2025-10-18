@@ -18,4 +18,14 @@ class CartRepoImpl extends CartRepo {
       return Left(ServerFailure(failure.errorMessageModel.message));
     }
   }
+
+  @override
+  Future<Either<Failure, CartModel>> deleteCartUser({required String productId})async{
+    try {
+      var result = await cartRemoteDataSource.deleteCart(productId: productId);
+      return Right(result);
+    } on ServerException catch (failure) {
+      return Left(ServerFailure(failure.errorMessageModel.message));
+    }
+  }
 }

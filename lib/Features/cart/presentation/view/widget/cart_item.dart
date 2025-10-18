@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:route_ecommerce/Features/cart/data/model/cart_model.dart';
+import 'package:route_ecommerce/Features/cart/presentation/view_manger/cart_cubit/cart_cubit.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CartItem extends StatelessWidget {
@@ -66,7 +67,11 @@ class CartItem extends StatelessWidget {
                               style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
                           ),
                           const SizedBox(width: 30.0,),
-                          IconButton(onPressed: (){}, icon: const Icon(Icons.delete,
+                          IconButton(onPressed: ()
+                          {
+                            CartCubit.get(context).deleteItemCart(
+                                productId: productsCart.product!.id ?? "");
+                          }, icon: const Icon(Icons.delete,
                             size:36, color: Color(0xff004182),)),
                         ],
                       ),
@@ -76,8 +81,12 @@ class CartItem extends StatelessWidget {
                       SizedBox(height: height*0.01,),
                       Row(
                         children: [
-                          Text("EGP ${productsCart.price!.toStringAsFixed(2) ?? "0.00"}", style: const TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w600),),
+                          Expanded(
+                            child: Text("EGP ${productsCart.price!.toStringAsFixed(2) ?? "0.00"}",
+                              maxLines: 2,overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.w600),),
+                          ),
                           const SizedBox(width: 20.0,),
                           Container(
                             width: width * 0.26,

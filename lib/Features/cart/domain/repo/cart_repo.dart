@@ -4,5 +4,6 @@ import '../../../../Core/utils/errors/failure.dart';
 
 abstract class CartRepo{
   Future<Either<Failure, CartModel>> getCartUser();
+  Future<Either<Failure, CartModel>> deleteCartUser({required String productId});
 
 }
