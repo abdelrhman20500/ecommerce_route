@@ -1,10 +1,10 @@
 import 'package:route_ecommerce/Core/function/api_service.dart';
 import 'package:route_ecommerce/Core/utils/shared_preferences.dart';
-import 'package:route_ecommerce/Features/category/data/model/add_cart_model.dart';
-import 'package:route_ecommerce/Features/category/data/model/product_details_model.dart';
-import 'package:route_ecommerce/Features/category/data/model/product_model.dart';
 import '../../../../Core/utils/errors/error_message_model.dart';
 import '../../../../Core/utils/errors/exception.dart';
+import '../model/add_cart_model.dart';
+import '../model/product_details_model.dart';
+import '../model/product_model.dart';
 
 abstract class ProductBaseRemoteDataSource {
   Future<List<ProductModel>> getProduct();

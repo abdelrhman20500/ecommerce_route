@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:route_ecommerce/Core/utils/errors/failure.dart';
-import 'package:route_ecommerce/Features/category/data/data_source/product_remote_data_source.dart';
-import 'package:route_ecommerce/Features/category/data/model/add_cart_model.dart';
-import 'package:route_ecommerce/Features/category/data/model/product_model.dart';
-import 'package:route_ecommerce/Features/category/domain/repo/product_repo.dart';
 import '../../../../Core/utils/errors/exception.dart';
+import '../../domain/repo/product_repo.dart';
+import '../data_source/product_remote_data_source.dart';
+import '../model/add_cart_model.dart';
 import '../model/product_details_model.dart';
+import '../model/product_model.dart';
 
 class ProductRepoImpl extends ProductRepo{
   final ProductRemoteDataSource productRemoteDataSource;

@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:route_ecommerce/Core/utils/errors/failure.dart';
-import 'package:route_ecommerce/Features/category/data/model/add_cart_model.dart';
-import 'package:route_ecommerce/Features/category/data/model/product_details_model.dart';
-import 'package:route_ecommerce/Features/category/data/model/product_model.dart';
+import '../../data/model/add_cart_model.dart';
+import '../../data/model/product_details_model.dart';
+import '../../data/model/product_model.dart';
 
 abstract class ProductRepo{
   Future<Either<Failure, List<ProductModel>>> productData();

@@ -80,7 +80,22 @@ class ApiService{
     return response;
   }
 
+ /// put Method
 
+  Future<Response> put({required String endPoint, required String token,required Map<String, dynamic> data,
+  }) async {
+    final response = await dio.put(
+      "$baseUrl$endPoint", // Full URL
+      data: data,
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'token': token,
+        },
+      ),
+    );
+    return response;
+  }
 
 }
 

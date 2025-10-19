@@ -109,7 +109,14 @@ class CartItem extends StatelessWidget {
                                     ),
                                   ),
                                   child: InkWell(
-                                    onTap: () {},
+                                    onTap: (){
+                                      var counter =productsCart.count ?? 0;
+                                      counter--;
+                                      CartCubit.get(context).updateCountCart(
+                                          productId: productsCart.product!.id ?? "",
+                                          count: counter
+                                      );
+                                    },
                                     child: const CircleAvatar(
                                       backgroundColor: Color(0xff004182),
                                       child: Icon(Icons.remove, color: Colors.white),
@@ -133,7 +140,14 @@ class CartItem extends StatelessWidget {
                                     ),
                                   ),
                                   child: InkWell(
-                                    onTap: () {},
+                                    onTap: (){
+                                      var counter =productsCart.count ?? 0;
+                                      counter++;
+                                      CartCubit.get(context).updateCountCart(
+                                          productId: productsCart.product!.id ?? "",
+                                          count: counter
+                                      );
+                                    },
                                     child: const CircleAvatar(
                                       backgroundColor: Color(0xff004182),
                                       child: Icon(Icons.add, color: Colors.white),

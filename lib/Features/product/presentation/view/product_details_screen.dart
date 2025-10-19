@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_ecommerce/Core/function/set_up_service_locator.dart';
-import 'package:route_ecommerce/Features/category/data/repo/product_repo_impl.dart';
-import 'package:route_ecommerce/Features/category/domain/use_case/use_case_product_id.dart';
-import 'package:route_ecommerce/Features/category/presentation/view/widget/product_details_component.dart';
-import 'package:route_ecommerce/Features/category/presentation/view_manager/productId_cubit/product_id_cubit.dart';
-import 'package:route_ecommerce/Features/category/presentation/view_manager/productId_cubit/product_id_state.dart';
+import 'package:route_ecommerce/Features/product/presentation/view/widget/product_details_component.dart';
+import '../../data/repo/product_repo_impl.dart';
+import '../../domain/use_case/use_case_product_id.dart';
+import '../view_manager/productId_cubit/product_id_cubit.dart';
+import '../view_manager/productId_cubit/product_id_state.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
   const ProductDetailsScreen({super.key, required this.productId});

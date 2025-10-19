@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:route_ecommerce/Features/category/presentation/view/product_details_screen.dart';
-import 'package:route_ecommerce/Features/category/presentation/view_manager/product_cubit/product_cubit.dart';
 import 'package:shimmer/shimmer.dart';
+import '../../view_manager/product_cubit/product_cubit.dart';
+import '../product_details_screen.dart';
 
 
 class ProductItem extends StatelessWidget {

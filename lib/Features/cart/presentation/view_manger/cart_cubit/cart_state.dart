@@ -20,3 +20,12 @@ class DeleteItemSuccess extends CartState{
   final CartModel cartModel;
   DeleteItemSuccess({required this.cartModel});
 }
+class UpdateCountCartLoading extends CartState{}
+class UpdateCountCartFailure extends CartState{
+  final String errMessage;
+  UpdateCountCartFailure({required this.errMessage});
+}
+class UpdateCountCartSuccess extends CartState{
+  final CartModel cartModel;
+  UpdateCountCartSuccess({required this.cartModel});
+}

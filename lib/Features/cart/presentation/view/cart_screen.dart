@@ -7,6 +7,7 @@ import 'package:route_ecommerce/Features/cart/data/data_source/cart_remote_data_
 import 'package:route_ecommerce/Features/cart/data/repo/cart_repo_impl.dart';
 import 'package:route_ecommerce/Features/cart/domain/use_case/cart_user_use_case.dart';
 import 'package:route_ecommerce/Features/cart/domain/use_case/delete_cart_use_case.dart';
+import 'package:route_ecommerce/Features/cart/domain/use_case/update_count_cart_use_case.dart';
 import 'package:route_ecommerce/Features/cart/presentation/view/widget/cart_item.dart';
 import 'package:route_ecommerce/Features/cart/presentation/view_manger/cart_cubit/cart_cubit.dart';
 import 'package:route_ecommerce/Features/cart/presentation/view_manger/cart_cubit/cart_state.dart';
@@ -48,8 +49,9 @@ class CartScreen extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => CartCubit(CartUserUseCase(getIt.get<CartRepoImpl>(),),
-        DeleteCartUseCase(cartRepo: CartRepoImpl(cartRemoteDataSource:
-        CartRemoteDataSource(apiService: ApiService(Dio(),),),),),)..getCart(),
+        DeleteCartUseCase(getIt.get<CartRepoImpl>()),
+        UpdateCountCartUseCase(cartRepo: CartRepoImpl(cartRemoteDataSource: 
+        CartRemoteDataSource(apiService: ApiService(Dio())))))..getCart(),
         child: BlocConsumer<CartCubit,CartState>(
           listener: (context, state) {
             if (state is DeleteItemFailure) {
