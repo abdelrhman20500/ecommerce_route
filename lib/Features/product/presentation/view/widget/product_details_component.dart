@@ -32,7 +32,7 @@ class ProductDetailsComponent extends StatelessWidget {
                       height: height * 0.3,
                       enlargeCenterPage: true,
                       enableInfiniteScroll: true,
-                      autoPlay: false,
+                      autoPlay: true,
                     ),
                     items: model.data?.images?.map((imageUrl) {
                           return Builder(
@@ -74,22 +74,6 @@ class ProductDetailsComponent extends StatelessWidget {
                           );
                         }).toList() ??
                         [],
-                  ),
-                ),
-                Positioned(
-                  top: 8.0,
-                  right: 8.0,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    radius: 24,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.favorite_border,
-                        color: Colors.blue,
-                        size: 28,
-                      ),
-                    ),
                   ),
                 ),
               ],
@@ -145,7 +129,7 @@ class ProductDetailsComponent extends StatelessWidget {
                           "Sold :",
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 18,
+                              fontSize: 17,
                               fontWeight: FontWeight.w600),
                         ),
                         Text(
@@ -154,7 +138,7 @@ class ProductDetailsComponent extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
                               color: Colors.black,
-                              fontSize: 18,
+                              fontSize: 17,
                               fontWeight: FontWeight.w600),
                         ),
                       ],
@@ -170,14 +154,14 @@ class ProductDetailsComponent extends StatelessWidget {
                       model.data!.ratingsAverage.toString(),
                       style: const TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 17,
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
                       "(${model.data!.ratingsQuantity.toString()})",
                       style: const TextStyle(
                           color: Colors.black,
-                          fontSize: 18,
+                          fontSize: 17,
                           fontWeight: FontWeight.w600),
                     ),
                   ],

@@ -32,7 +32,7 @@ class _BuildCarouselSliderState extends State<BuildCarouselSlider> {
           options: CarouselOptions(
             height: 230.0,
             viewportFraction: 1.0,
-            autoPlay: false,
+            autoPlay: true,
             autoPlayInterval: const Duration(seconds: 3),
             autoPlayAnimationDuration: const Duration(seconds: 1),
             autoPlayCurve: Curves.fastOutSlowIn,

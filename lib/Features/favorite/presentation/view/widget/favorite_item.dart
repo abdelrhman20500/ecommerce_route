@@ -4,11 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:route_ecommerce/Features/favorite/presentation/favorite_cubit/favorite_cubit.dart';
 import 'package:route_ecommerce/Features/favorite/presentation/favorite_cubit/favorite_state.dart';
 import 'package:shimmer/shimmer.dart';
-import '../../view_manager/product_cubit/product_cubit.dart';
-import '../product_details_screen.dart';
 
-class ProductItem extends StatelessWidget {
-  const ProductItem({
+import '../../../../product/presentation/view/product_details_screen.dart';
+import '../../../../product/presentation/view_manager/product_cubit/product_cubit.dart';
+
+
+class FavoriteItem extends StatelessWidget {
+  const FavoriteItem({
     super.key,
     required this.id,
     required this.title,
@@ -172,7 +174,7 @@ class ProductItem extends StatelessWidget {
                       },
                       icon: const Icon(
                         Icons.add,
-                        size: 26,
+                        size: 30,
                         color: Colors.white,
                       ),
                     ),

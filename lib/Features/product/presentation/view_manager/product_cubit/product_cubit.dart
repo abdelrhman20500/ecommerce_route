@@ -54,6 +54,7 @@ class ProductCubit extends Cubit<ProductState> {
   Future<void> getProduct() async {
     emit(ProductLoading());
     var result = await productUseCase.call(const NoParameters());
+    
     result.fold((e) {
       emit(ProductFailure(errMessage: e.message));
     }, (productModel) {

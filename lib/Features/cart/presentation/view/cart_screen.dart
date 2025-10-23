@@ -35,17 +35,6 @@ class CartScreen extends StatelessWidget {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Colors.white),
         ),
         centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search, color: Colors.white, size: 35),
-          ),
-          const SizedBox(width: 20.0,),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.shopping_cart_outlined, color: Colors.white, size: 35),
-          ),
-        ],
       ),
       body: BlocProvider(
         create: (context) => CartCubit(CartUserUseCase(getIt.get<CartRepoImpl>(),),

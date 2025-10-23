@@ -7,6 +7,7 @@ import 'package:route_ecommerce/Core/widgets/custom_text_button.dart';
 import 'package:route_ecommerce/Core/widgets/custom_text_field.dart';
 import 'package:route_ecommerce/Features/Auth/data/repo/auth_repo_impl.dart';
 import 'package:route_ecommerce/Features/Auth/domain/use_case/login_use_case.dart';
+import 'package:route_ecommerce/Features/Auth/presentation/view/forget_password_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/register_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Login_cubit/login_cubit.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view_manger/Login_cubit/login_state.dart';
@@ -91,7 +92,9 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.pushNamed(context, ForgetPasswordScreen.routeName);
+                            },
                             child: const Text(
                               "Forget password",
                               style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
@@ -135,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                             },
                             child: const Text(
                               'Create Account',
-                              style: TextStyle(fontSize: 20, color: Colors.white),
+                              style: TextStyle(fontSize: 18, color: Colors.white),
                             ),
                           ),
                         ],

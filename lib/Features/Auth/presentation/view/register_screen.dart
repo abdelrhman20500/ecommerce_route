@@ -36,7 +36,8 @@ class RegisterScreen extends StatelessWidget {
           if(state is RegisterLoading){
             showLoadingDialog(context);
           }else if(state is RegisterFailure){
-            showErrorDialog(context, "try again Later!");
+            closeLoadingDialog(context);
+            showErrorDialog(context, state.error);
           }else if(state is RegisterSuccess){
             closeLoadingDialog(context);
             showSuccessDialog(context, state.authModel.message!);

@@ -51,10 +51,10 @@ class LayoutScreen extends StatelessWidget {
                     tabBackgroundColor:Colors.blue, // selected tab background color
                     padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12), // navigation bar padding
                     tabs: const[
-                      GButton(icon: Icons.home, text: 'Home',),
-                      GButton(icon: Icons.category_sharp, text: 'Products',),
-                      GButton(icon: Icons.favorite, text: 'Favorite',),
-                      GButton(icon: Icons.person, text: 'Profile',),
+                      GButton(icon: Icons.home, text: '',),
+                      GButton(icon: Icons.category_sharp, text: '',),
+                      GButton(icon: Icons.favorite, text: '',),
+                      GButton(icon: Icons.person, text: '',),
                     ]
                 ),
               ),

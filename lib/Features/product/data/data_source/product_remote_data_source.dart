@@ -47,7 +47,7 @@ class ProductRemoteDataSource extends ProductBaseRemoteDataSource{
 
   @override
   Future<AddCartModel> addCart({required String productId})async{
-    var response = await apiService.postCart("cart", {
+    var response = await apiService.postMethod("cart", {
       "productId": productId,
     }, SharedPref.getToken().toString()
     );

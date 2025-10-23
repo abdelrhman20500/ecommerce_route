@@ -1,8 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:route_ecommerce/Core/function/api_service.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/Login_screen.dart';
+import 'package:route_ecommerce/Features/Auth/presentation/view/change_password_screen.dart';
+import 'package:route_ecommerce/Features/Auth/presentation/view/forget_password_screen.dart';
 import 'package:route_ecommerce/Features/Auth/presentation/view/register_screen.dart';
+import 'package:route_ecommerce/Features/Auth/presentation/view/verify_reset_code_screen.dart';
 import 'package:route_ecommerce/Features/cart/presentation/view/cart_screen.dart';
+import 'package:route_ecommerce/Features/favorite/data/data_source/favorite_remote_data_source.dart';
+import 'package:route_ecommerce/Features/favorite/data/repo/fav_impl.dart';
+import 'package:route_ecommerce/Features/favorite/domain/use_case/add_favorite_use_case.dart';
+import 'package:route_ecommerce/Features/favorite/domain/use_case/get_favorite_use_case.dart';
+import 'package:route_ecommerce/Features/favorite/domain/use_case/remove_favorite_use_case.dart';
+import 'package:route_ecommerce/Features/favorite/presentation/favorite_cubit/favorite_cubit.dart';
 import 'package:route_ecommerce/Features/layout/presentation/view/layout_screen.dart';
 import 'Core/function/set_up_service_locator.dart';
 import 'Core/function/simple_bloc_observer.dart';
@@ -14,11 +25,6 @@ void main() async{
   await SharedPref.init();
   setUpServiceLocator();
   Bloc.observer= SimpleBlocObserver();
-  // CartCubit(CartUserUseCase(getIt.get<CartRepoImpl>(),),
-  //     DeleteCartUseCase(getIt.get<CartRepoImpl>()),
-  //     UpdateCountCartUseCase(cartRepo: CartRepoImpl(cartRemoteDataSource:
-  //     CartRemoteDataSource(apiService: ApiService(Dio())))))
-  // ..updateCountCart(productId: "6428dfa0dc1175abc65ca067", count: 1);
   runApp(const MyApp());
 }
 
@@ -27,17 +33,45 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      routes: {
-        SplashScreen.routeName:(_)=>const SplashScreen(),
-        LoginScreen.routeName:(_)=>LoginScreen(),
-        RegisterScreen.routeName:(_)=>RegisterScreen(),
-        LayoutScreen.routeName:(_)=>LayoutScreen(),
-        CartScreen.routeName:(_)=>const CartScreen(),
-      },
-      // initialRoute: CartScreen.routeName,
-      initialRoute: SharedPref.getToken()== null ?LoginScreen.routeName: LayoutScreen.routeName,
+    return BlocProvider(
+      create: (context) => FavoriteCubit(
+        AddFavoriteUseCase(
+          favoriteRepo: FavoriteRepoImpl(
+            favoriteRemoteDataSource: FavoriteRemoteDataSource(
+              apiService: ApiService(Dio()),
+            ),
+          ),
+        ),
+        RemoveFavoriteUseCase(
+          favoriteRepo: FavoriteRepoImpl(
+            favoriteRemoteDataSource: FavoriteRemoteDataSource(
+              apiService: ApiService(Dio()),
+            ),
+          ),
+        ),
+        GetFavoriteUseCase(
+          favoriteRepo: FavoriteRepoImpl(
+            favoriteRemoteDataSource: FavoriteRemoteDataSource(
+              apiService: ApiService(Dio()),
+            ),
+          ),
+        ),
+      )..getFavorite(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        routes: {
+          SplashScreen.routeName: (_) => const SplashScreen(),
+          LoginScreen.routeName: (_) => LoginScreen(),
+          RegisterScreen.routeName: (_) => RegisterScreen(),
+          LayoutScreen.routeName: (_) => LayoutScreen(),
+          CartScreen.routeName: (_) => const CartScreen(),
+          ForgetPasswordScreen.routeName:(_)=>ForgetPasswordScreen(),
+          VerifyResetCodeScreen.routeName:(_)=>const VerifyResetCodeScreen(),
+          ChangePasswordScreen.routeName:(_)=>ChangePasswordScreen()
+        },
+        // initialRoute: LoginScreen.routeName,
+        initialRoute: SharedPref.getToken() == null ? SplashScreen.routeName: LayoutScreen.routeName,
+      ),
     );
   }
 }

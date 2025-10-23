@@ -6,7 +6,7 @@ class CustomTextButton extends StatelessWidget {
 
   final String text;
   final void Function()? onTab;
-   final Color? color; // Optional color parameter
+   final Color? color;
 
    @override
   Widget build(BuildContext context) {

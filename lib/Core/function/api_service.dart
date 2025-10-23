@@ -20,8 +20,21 @@ class ApiService{
   }
 
   /// postCart method
-  Future<Response> postCart(String endPoint, Map<String, dynamic> data, String token) async {
+  Future<Response> postMethod(String endPoint, Map<String, dynamic> data, String token) async {
     return await dio.post(
+      '$baseUrl$endPoint',
+      data: data,
+      options: Options(
+        headers: {
+          'Content-Type': 'application/json',
+          'token': token,
+        },
+      ),
+    );
+  }
+   /// put method
+  Future<Response> putForPassword(String endPoint, Map<String, dynamic> data, String token) async {
+    return await dio.put(
       '$baseUrl$endPoint',
       data: data,
       options: Options(
@@ -56,9 +69,10 @@ class ApiService{
     return response;
   }
   /// delete method
-  Future<Response> delete({required String endPoint,required String token,}) async {
+  Future<Response> delete({required String endPoint,required String token,Map<String, dynamic>? data,}) async {
     final response = await dio.delete(
-      "$baseUrl$endPoint", // this must be a full URL
+      "$baseUrl$endPoint",
+      data: data,
       options: Options(
         headers: {
           'Content-Type': 'application/json',
@@ -82,8 +96,7 @@ class ApiService{
 
  /// put Method
 
-  Future<Response> put({required String endPoint, required String token,required Map<String, dynamic> data,
-  }) async {
+  Future<Response> put({required String endPoint, required String token,required Map<String, dynamic> data,}) async {
     final response = await dio.put(
       "$baseUrl$endPoint", // Full URL
       data: data,
